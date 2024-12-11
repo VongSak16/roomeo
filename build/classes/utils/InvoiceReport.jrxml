@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="216" pageHeight="288" columnWidth="176" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f11797b1-ef3e-43a6-8a83-a04da7813121">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="62"/>
+	<parameter name="BookingID" class="java.lang.String"/>
+	<parameter name="BookingDate" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="83" height="17" uuid="6b240ab5-77b7-4b73-b6b9-6cccdbc32b2c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Roomeo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="17" width="55" height="11" uuid="f212f4dc-7e70-44ce-9206-94f6ad215b95"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Booking Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="28" width="55" height="13" uuid="35c5c1b8-f6fc-4f11-adfa-44465feca976"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Booking ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="83" y="28" width="93" height="13" uuid="8ddd05c7-2cec-4f17-8641-d315fa4bf281"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BookingID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="17" width="93" height="11" uuid="1b07177a-16e9-4e5e-b190-9f16634a74a6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{BookingDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="10" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="6" width="176" height="1" uuid="58b40142-d9b2-48e1-936b-c177478eea83"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="11" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="28" height="11" uuid="0941a2d1-3bf5-407a-86a1-2d4686b757f7"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[rental]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="67" y="0" width="33" height="11" uuid="f0541b19-f5cb-405b-9224-c62affefb2f6"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[checkout]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="0" width="39" height="11" uuid="8448bf5c-2baf-4600-a3ca-421775ef7919"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[checkin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="28" height="11" uuid="5ce5f8f6-49d9-4160-9db2-336b50eb7ccd"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="0" width="48" height="11" uuid="19d15119-d741-4359-8140-feb2c014255e"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cost]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="68" width="100" height="13" uuid="5c543de8-205c-4426-854d-6d6387aa2648"/>
+				<textElement>
+					<font fontName="AKbalthom KhmerHand" size="6"/>
+				</textElement>
+				<text><![CDATA[Thanks You!]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="4" width="176" height="1" uuid="538a353e-05dd-4507-a054-642cdc6b71ff"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="15" splitType="Stretch"/>
+	</summary>
+</jasperReport>

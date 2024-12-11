@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="216" pageHeight="288" columnWidth="176" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f11797b1-ef3e-43a6-8a83-a04da7813121">
+	<property name="ireport.zoom" value="5.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TotalItems" class="java.lang.Integer"/>
+	<parameter name="SubTotal" class="java.lang.Double"/>
+	<parameter name="Discount" class="java.lang.Double"/>
+	<parameter name="Id" class="java.lang.String"/>
+	<parameter name="Date" class="java.lang.String"/>
+	<parameter name="InvoiceId" class="java.lang.Integer"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="fee" class="java.lang.Double"/>
+	<field name="price" class="java.lang.Double"/>
+	<field name="room" class="database.model.Room"/>
+	<field name="house" class="database.model.House"/>
+	<field name="check_in_date" class="java.time.LocalDateTime"/>
+	<field name="check_out_date" class="java.time.LocalDateTime"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="83" height="17" uuid="6b240ab5-77b7-4b73-b6b9-6cccdbc32b2c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Roomeo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="84" y="17" width="38" height="11" uuid="f212f4dc-7e70-44ce-9206-94f6ad215b95"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="28" width="39" height="13" uuid="35c5c1b8-f6fc-4f11-adfa-44465feca976"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="17" width="66" height="11" uuid="1a44f42f-8e18-4fc7-9f6d-61ea99e66272"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="28" width="66" height="13" uuid="dcd9af02-3383-4142-8241-031907fae7bb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="6" width="176" height="1" uuid="58b40142-d9b2-48e1-936b-c177478eea83"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="8" splitType="Stretch">
+			<staticText>
+				<reportElement x="134" y="0" width="42" height="8" uuid="5c926c3e-3d0f-44fd-a63d-f6b9cc54604a"/>
+				<textElement>
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="34" height="8" uuid="efcff57b-eeae-41d4-a2a9-aec540d330bb"/>
+				<textElement>
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="35" height="8" uuid="9ff8c2f1-f8e1-489c-a69d-bf1e4c633f69"/>
+				<textElement>
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="0" width="30" height="8" uuid="0a6dc197-0279-495e-9670-99e0787f8e1c"/>
+				<textElement>
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[checkout]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="1" width="35" height="7" uuid="a1ce156c-e053-4705-ab8a-0e4846578815"/>
+				<textElement>
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[checkin]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement x="134" y="0" width="42" height="10" uuid="de13e017-f654-4ab9-8443-eab160b4f8b9"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="100" y="1" width="34" height="10" uuid="4d4ce3e4-6029-4491-8a40-eed432dc96f3"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fee} + $F{price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="35" height="10" uuid="49ae211f-0b8d-4d1e-9348-060f31753bce"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{house} != null ? $F{house}.getName() : $F{room}.getRoom_number()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy">
+				<reportElement x="35" y="1" width="35" height="10" uuid="4e11f89d-1ffc-4655-a1fd-dfd42f5fef57"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yy").format(
+    java.util.Date.from($F{check_in_date}.atZone(java.time.ZoneId.systemDefault()).toInstant())
+)]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy">
+				<reportElement x="70" y="1" width="30" height="10" uuid="847a6198-b98d-435f-8e81-a367d5815c2d"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yy").format(
+    java.util.Date.from($F{check_out_date}.atZone(java.time.ZoneId.systemDefault()).toInstant())
+)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="18" width="100" height="13" uuid="5c543de8-205c-4426-854d-6d6387aa2648"/>
+				<textElement>
+					<font fontName="AKbalthom KhmerHand" size="6"/>
+				</textElement>
+				<text><![CDATA[Thanks You!]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="4" width="176" height="1" uuid="538a353e-05dd-4507-a054-642cdc6b71ff"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="5" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="15" splitType="Stretch"/>
+	</summary>
+</jasperReport>
